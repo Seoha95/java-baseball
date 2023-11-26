@@ -1,5 +1,8 @@
 package baseball.controller;
 
+import java.util.List;
+
+import baseball.domain.Computer;
 import baseball.view.InputView;
 import baseball.view.OutputView;
 
@@ -15,6 +18,20 @@ public class GameController {
 
 	public void run() {
 		outputView.printStart();
+		Computer computer = new Computer();
+		do {
+			gameStart(computer);
+		} while (reStart());
+	}
+
+	private void gameStart(Computer computer) {
+		outputView.printInputNumber();
+		List<Integer> playerInput = inputView.generateAnswer();
+
+	}
+
+	private boolean reStart() {
+		return false;
 	}
 
 }
