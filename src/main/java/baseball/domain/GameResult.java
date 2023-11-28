@@ -7,12 +7,12 @@ public class GameResult {
 	private final int ballCount;
 	private final int strikeCount;
 
-	private GameResult(final List<Integer> playerNumber, final Computer computerNumber) {
+	private GameResult(List<Integer> playerNumber, Computer computerNumber) {
 		ballCount = computerNumber.ballCount(playerNumber);
 		strikeCount = computerNumber.strikeCount(playerNumber);
 	}
 
-	public static GameResult create(final List<Integer> playerNumber, final Computer computerNumber) {
+	public static GameResult create(List<Integer> playerNumber, Computer computerNumber) {
 		return new GameResult(playerNumber, computerNumber);
 	}
 
@@ -24,6 +24,6 @@ public class GameResult {
 			return strikeCount + "스트라이크";
 		}
 
-		return ballCount + "볼" + strikeCount + "스트라이크";
+		return ballCount + "볼 " + strikeCount + "스트라이크";
 	}
 }
