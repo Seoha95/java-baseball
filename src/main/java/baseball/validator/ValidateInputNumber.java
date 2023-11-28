@@ -5,7 +5,6 @@ import baseball.constans.ExceptionMessage;
 public class ValidateInputNumber {
 
 	public static void validateBaseballNumber(String input) {
-		System.out.println(input.chars().distinct().count());
 		IsEmpty(input);
 		inputSize(input);
 		if (numberDuplicate(input)) {
