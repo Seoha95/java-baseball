@@ -11,29 +11,39 @@ public class GameController {
 
 	private final InputView inputView;
 	private final OutputView outputView;
-	private final Computer computer;
 
 	public GameController(InputView inputView, OutputView outputView) {
 		this.inputView = inputView;
 		this.outputView = outputView;
-		this.computer = new Computer();
 	}
 
 	public void run() {
+
 		outputView.printStart();
 		do {
-			gameStart(computer);
-		} while (true);
+			gameStart();
+		} while (reStart());
 	}
 
-	private void gameStart(Computer computer) {
-		outputView.printInputNumber();
-		List<Integer> playerNumber = inputView.generateAnswer();
-		GameResult gameResult = GameResult.create(playerNumber, computer);
-		outputView.printResult(gameResult.result());
+	private void gameStart() {
+		String matchResult;
+		Computer computer = new Computer();
+		do {
+			outputView.printInputNumber();
+			List<Integer> playerNumber = inputView.generateAnswer();
+			GameResult gameResult = GameResult.create(playerNumber, computer);
+			matchResult = gameResult.result();
+			outputView.printResult(matchResult);
+		} while (!matchResult.equals("3스트라이크"));
+
 	}
 
 	private boolean reStart() {
+		outputView.printIsRestart();
+		if (inputView.isNewGame() == 1) {
+			return true;
+		}
+
 		return false;
 	}
 

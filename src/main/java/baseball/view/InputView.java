@@ -15,4 +15,10 @@ public class InputView {
 		return player;
 	}
 
+	public int isNewGame() {
+		String replayAnswer = Console.readLine();
+		ValidateInputNumber.validateReStart(replayAnswer);
+		return Integer.parseInt(replayAnswer);
+	}
+
 }
